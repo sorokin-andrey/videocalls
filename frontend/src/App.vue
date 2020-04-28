@@ -1,16 +1,48 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld id="hello"/>
+    <Intro id="intro"/>
   </div>
 </template>
 
 <script>
+
 import HelloWorld from './components/HelloWorld.vue'
+import Intro from './components/Intro.vue'
+import axios from "axios"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    Intro
+  },
+  data () {
+      return {
+          peerId: null,
+          peers: null
+      }
+  },
+  mounted() {
+      axios.get('http://localhost:8080').then(response => {
+          this.peers = response.data;
+          if (this.peers.length > 0) {
+              // console.log(this.peers);
+          } else {
+              // console.log('else ' + this.peers);
+              axios.post('http://localhost:8080', 'Andrey');
+          }
+      });
+  }
+}
+
+window.onload = function() {
+  if (this.peers != null && this.peers.length > 0) {
+      document.getElementById("intro").style.visibility = 'hidden';
+      document.getElementById("hello").style.visibility = 'visible';
+  } else {
+      document.getElementById("intro").style.visibility = 'visible';
+      document.getElementById("hello").style.visibility = 'hidden';
   }
 }
 </script>
