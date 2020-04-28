@@ -3,22 +3,22 @@
     <div class="container">
       <h1 class="wrapper__title">Welcome</h1>
       <form
-        action="http://localhost:8080"
-        method="POST"
-        class="form"
-        v-on:submit="sub"
+              action="http://localhost:8080"
+              method="POST"
+              class="form"
+              v-on:submit.prevent="sub"
       >
         <input
-          type="text"
-          placeholder="First name"
-          id="firstName"
-          v-model="firstName"
+                type="text"
+                placeholder="First name"
+                id="firstName"
+                v-model="firstName"
         />
         <input
-          type="text"
-          placeholder="Last name"
-          id="lastName"
-          v-model="lastName"
+                type="text"
+                placeholder="Last name"
+                id="lastName"
+                v-model="lastName"
         />
         <button type="submit" id="login-button">Enter to conference</button>
       </form>
@@ -41,24 +41,33 @@
 
 <script>
 
-export default {
-  data() {
-    return {
-      firstName: "",
-      lastName: "",
-    };
-  },
-  methods: {
-    sub: function(event) {
-      if (this.firstName == "" || this.lastName == "") {
-        this.log = "Enter your name.";
-        event.preventDefault();
-      } else {
-        this.log = "Go";
-      }
+  import axios from "axios";
+
+  const SERVER_URL = 'http://localhost:8080';
+
+  export default {
+    data() {
+      return {
+        firstName: "",
+        lastName: "",
+      };
     },
-  },
-};
+    methods: {
+      sub: function (event) {
+        if (this.firstName == "" || this.lastName == "") {
+          this.log = "Enter your name.";
+          event.preventDefault();
+        } else {
+          event.preventDefault();
+
+          axios.post(SERVER_URL, {
+            "firstName": this.firstName,
+            "lastName": this.lastName
+          });
+        }
+      },
+    },
+  };
 </script>
 
 <style scoped lang="less">

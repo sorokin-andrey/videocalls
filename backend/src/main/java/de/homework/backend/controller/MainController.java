@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.homework.backend.models.Peer;
+
 @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8081"}, maxAge = 3600)
 @RestController
 public class MainController {
@@ -36,8 +38,9 @@ public class MainController {
     }
 
     @PostMapping
-    public Set<String> addPeer(@RequestBody final String peerId) {
-        peers.add(peerId.replace("=", ""));
+    public Set<String> addPeer(@RequestBody final Peer peer) {
+        log.info(peer.toString());
+        peers.add(peer.getName());
 
         return peers;
     }
