@@ -2,12 +2,7 @@
     <div class="hello">
 
         <div id="login" style="visibility: hidden">
-            <form class="form-block">
-                <div class="form-block__title">
-                    Введите Ваше имя:
-                </div>
-                <input class="form-block__input">
-            </form>
+
         </div>
 
         <div id="container" style="visibility: hidden">
@@ -23,17 +18,11 @@
     // import Vue from 'vue'
     // import VuePeerJS from 'vue-peerjs';
     // import Peer from 'peerjs';
-    import axios from "axios";
+    // import axios from "axios";
 
     window.onload = function() {
 
-        if (this.peers != null && this.peers.length > 0) {
-            document.getElementById("login").style.visibility = 'hidden';
-            document.getElementById("container").style.visibility = 'visible';
-        } else {
-            document.getElementById("login").style.visibility = 'visible';
-            document.getElementById("container").style.visibility = 'hidden';
-        }
+
 
         // let peerAndrey = new Peer('Andrey');
         // let peerNadezhda = new Peer('Nadezhda');
@@ -70,28 +59,28 @@
         // }
     }
 
-    export default {
-        data () {
-            return {
-                peerId: null,
-                peers: null
-            }
-        },mounted() {
-            axios.get('http://localhost:8080').then(response => {
-                this.peers = response.data;
-                if (this.peers.length > 0) {
-                    console.log(this.peers);
-                } else {
-                    console.log('else ' + this.peers);
-                    axios.post('http://localhost:8080', 'Andrey');
-                }
-            });
+    // export default {
+    //     data () {
+    //         return {
+    //             peerId: null,
+    //             peers: null
+    //         }
+    //     },mounted() {
+    //         axios.get('http://localhost:8080').then(response => {
+    //             this.peers = response.data;
+    //             if (this.peers.length > 0) {
+    //                 console.log(this.peers);
+    //             } else {
+    //                 console.log('else ' + this.peers);
+    //                 axios.post('http://localhost:8080', 'Andrey');
+    //             }
+    //         });
+    //     }
+    // }
 
-        }
-    }
 </script>
 
-<style scoped>
+<style scoped lang="less">
     h3 {
         margin: 40px 0 0;
     }
@@ -122,24 +111,6 @@
         background-color: #666;
     }
 
-    .form-block {
-        display: flex;
-        justify-content: center;
-    }
-    .form-block__title {
-        margin-right: 15px;
-        color: #36363a;
-        font-size: 19px;
-    }
-
-    .form-block__input {
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: 1px solid #36363a;
-        font-size: 19px;
-        outline: none;
-    }
 </style>
 
 
