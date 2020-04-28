@@ -1,0 +1,9 @@
+buildVideoCalls.doLast {
+    println "Building the frontend"
+    npmInstall
+}
+
+task npmInstall(type: Exec) {
+    println "Executing npm run serve"
+    commandLine "npm", "run serve"
+}
