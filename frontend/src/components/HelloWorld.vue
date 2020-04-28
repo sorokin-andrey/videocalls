@@ -1,11 +1,11 @@
 <template>
     <div class="hello">
 
-        <div id="login" style="visibility: hidden">
+        <div id="login" style="display: none">
 
         </div>
 
-        <div id="container" style="visibility: hidden">
+        <div id="container" style="display: none">
             <video autoplay id="videoElement">
 
             </video>
