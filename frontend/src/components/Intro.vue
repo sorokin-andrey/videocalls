@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
-    <div class="container">
-      <h1 class="wrapper__title">Welcome</h1>
+    <div class="container intro">
+      <h1 class="wrapper__title intro__title">Welcome</h1>
       <form
               action="http://localhost:8080"
               method="POST"
-              class="form"
+              class="form intro__form"
               v-on:submit.prevent="sub"
       >
         <input
@@ -13,30 +13,30 @@
           placeholder="First name"
           id="firstName"
           v-model="firstName"
-          class="wrapper__input"
+          class="wrapper__input intro__input"
         />
         <input
           type="text"
           placeholder="Last name"
           id="lastName"
           v-model="lastName"
-          class="wrapper__input"
+          class="wrapper__input intro__input"
         />
-        <button type="submit" id="login-button">Enter to conference</button>
+        <button type="submit" id="login-button" class="intro__button">Enter to conference</button>
       </form>
     </div>
 
     <ul class="bg-bubbles">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
+      <li class="bg-bubbles__item"></li>
     </ul>
   </div>
 </template>
@@ -80,7 +80,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
   font-weight: 300;
 }
   ::-webkit-input-placeholder {
@@ -122,11 +121,9 @@
   overflow: hidden;
   position: absolute;
   display: flex;
-  &__title {
-    color:#fff;
-  }
+
   &.form-success {
-    .container {
+    .intro {
       h1 {
         transform: translateY(85px);
       }
@@ -134,48 +131,43 @@
   }
 }
 
-.container {
+.intro {
   max-width: 600px;
   text-align: center;
   margin: auto;
-
-  h1 {
+  &__title {
     font-size: 40px;
     transition-duration: 1s;
     transition-timing-function: ease-in-put;
     font-weight: 200;
+    color:#fff;
   }
-}
 
-form {
+  &__form {
   padding: 20px 0;
   position: relative;
   z-index: 2;
+  }
 
-  input {
+  &__input {
     display: block;
     appearance: none;
     outline: 0;
     border: 1px solid fade(white, 40%);
     background-color: fade(white, 20%);
     width: 250px;
-
     border-radius: 3px;
     padding: 10px 15px;
     margin: 0 auto 10px auto;
     display: block;
     text-align: center;
     font-size: 18px;
-
     color: white;
-
     transition-duration: 0.25s;
     font-weight: 300;
-
     &:hover {
       background-color: fade(white, 40%);
     }
-
     &:focus {
       background-color: white;
       width: 300px;
@@ -183,7 +175,7 @@ form {
     }
   }
 
-  button {
+  &__button {
     appearance: none;
     outline: 0;
     background-color: white;
@@ -195,12 +187,20 @@ form {
     cursor: pointer;
     font-size: 18px;
     transition-duration: 0.25s;
-
     &:hover {
       background-color: rgb(245, 247, 249);
     }
   }
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: @prim;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff20 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 
 .bg-bubbles {
   position: absolute;
@@ -208,10 +208,9 @@ form {
   left: 0;
   width: 100%;
   height: 100%;
-
   z-index: 1;
 
-  li {
+  &__item {
     position: absolute;
     list-style: none;
     display: block;
@@ -219,10 +218,8 @@ form {
     height: 40px;
     background-color: fade(white, 15%);
     bottom: -160px;
-
     -webkit-animation: square 25s infinite;
     animation: square 25s infinite;
-
     -webkit-transition-timing-function: linear;
     transition-timing-function: linear;
 
@@ -232,10 +229,8 @@ form {
 
     &:nth-child(2) {
       left: 20%;
-
       width: 80px;
       height: 80px;
-
       animation-delay: 2s;
       animation-duration: 17s;
     }
@@ -249,9 +244,7 @@ form {
       left: 40%;
       width: 60px;
       height: 60px;
-
       animation-duration: 22s;
-
       background-color: fade(white, 25%);
     }
 
@@ -263,7 +256,6 @@ form {
       left: 80%;
       width: 120px;
       height: 120px;
-
       animation-delay: 3s;
       background-color: fade(white, 20%);
     }
@@ -272,7 +264,6 @@ form {
       left: 32%;
       width: 160px;
       height: 160px;
-
       animation-delay: 7s;
     }
 
@@ -280,7 +271,6 @@ form {
       left: 55%;
       width: 20px;
       height: 20px;
-
       animation-delay: 15s;
       animation-duration: 40s;
     }
@@ -289,7 +279,6 @@ form {
       left: 25%;
       width: 10px;
       height: 10px;
-
       animation-delay: 2s;
       animation-duration: 40s;
       background-color: fade(white, 30%);
@@ -299,7 +288,6 @@ form {
       left: 90%;
       width: 160px;
       height: 160px;
-
       animation-delay: 11s;
     }
   }
@@ -321,18 +309,4 @@ form {
     transform: translateY(-700px) rotate(600deg);
   }
 }
-
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: @prim;
-  -webkit-box-shadow: 0 0 0px 1000px #ffffff20 inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-// input:-webkit-autofill, 
-// input:-webkit-autofill:focus {
-//   background-color: white;
-// }
 </style>

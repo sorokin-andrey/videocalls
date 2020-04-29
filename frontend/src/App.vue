@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Background/>
     <HelloWorld id="hello"/>
     <Intro id="intro"/>
   </div>
@@ -9,13 +10,15 @@
 
 import HelloWorld from './components/HelloWorld.vue'
 import Intro from './components/Intro.vue'
+import Background from './components/Background.vue'
 import axios from "axios"
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    Intro
+    Intro,
+    Background
   },
   data () {
       return {
