@@ -44,6 +44,7 @@
 <script>
 
   import axios from "axios";
+  import {blockVisibilityController} from "../functions/blockVisibilityController"
 
   const SERVER_URL = 'http://localhost:8080';
 
@@ -65,7 +66,7 @@
           axios.post(SERVER_URL, {
             "firstName": this.firstName,
             "lastName": this.lastName
-          });
+          }).then(response => blockVisibilityController(response.data));
         }
       },
     },

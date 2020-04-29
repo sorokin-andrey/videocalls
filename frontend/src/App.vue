@@ -14,6 +14,7 @@ import Conference from './components/Conference.vue'
 import Login from './components/Login.vue'
 
 import axios from "axios"
+import {blockVisibilityController} from "./functions/blockVisibilityController"
 
 export default {
   name: 'App',
@@ -23,17 +24,7 @@ export default {
     Login
   },
   mounted() {
-    axios.get('http://localhost:8080').then(response => show(response.data));
-  }
-}
-
-function show(data) {
-  if (data != null && data.length > 0) {
-      document.getElementById("login").style.display = 'none';
-      document.getElementById("conference").style.display = 'block';
-  } else {
-      document.getElementById("login").style.visibility = 'block';
-      document.getElementById("conference").style.visibility = 'none';
+    axios.get('http://localhost:8080').then(response => blockVisibilityController(response.data));
   }
 }
 </script>
