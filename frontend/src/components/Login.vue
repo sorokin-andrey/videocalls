@@ -4,6 +4,7 @@
       <form
         action="http://localhost:8080"
         method="POST"
+        id="introForm"
         class="form intro__form"
         v-on:submit.prevent="sub"
       >
@@ -29,7 +30,8 @@
 <script>
 
   import axios from "axios";
-  import {blockVisibilityController} from "../functions/blockVisibilityController"
+// import func from '../../../../vue-temp/vue-editor-bridge';
+  // import {blockVisibilityController} from "../functions/blockVisibilityController"
 
   const SERVER_URL = 'http://192.168.178.39:9000/';
 
@@ -41,21 +43,29 @@
       };
     },
     methods: {
-      sub: function (event) {
+      sub: function () {
         if (this.firstName == "" || this.lastName == "") {
           this.log = "Enter your name.";
-          event.preventDefault();
         } else {
-          event.preventDefault();
-
           axios.post(SERVER_URL, {
             "firstName": this.firstName,
             "lastName": this.lastName
-          }).then(response => blockVisibilityController(response.data));
+          }).then(
+            ddd()
+          );
         }
+
+
       },
     },
   };
+
+  function ddd() {
+    document.getElementById("introForm").classList.add('fadeOut');
+    document.getElementById("login").classList.add('form-success');
+    // blockVisibilityController(response.data);
+    document.getElementById("conference").classList.add('fadeIn');
+  }
 </script>
 
 <style scoped lang="less">
@@ -67,11 +77,13 @@
   font-weight: 300;
 }
   &.form-success {
-    .intro {
-      h1 {
+      .intro__title {
         transform: translateY(85px);
+        -webkit-transition-delay: 0.5s;
+        -o-transition-delay: 0.5s;
+        -moz-transition-delay: 0.5s;
+        transition-delay: 1s;
       }
-    }
   }
   ::-webkit-input-placeholder {
     /* WebKit browsers */

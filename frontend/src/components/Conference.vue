@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="conference">
         <Camera />
         <Friends />
     </div>
@@ -22,5 +22,11 @@ export default {
 
 
 <style scoped lang="less">
-
+    .conference {
+        opacity: 0;
+        // display: none;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="container">
+    <div id="videoContainer">
         <video autoplay id="videoElement">
 
         </video>
@@ -73,11 +73,12 @@
         color: #42b983;
     }
 
-    #container {
+    #videoContainer {
         margin: 0 auto;
         width: 500px;
         height: 375px;
         border: 10px #333 solid;
+        
     }
     #videoElement {
         width: 500px;

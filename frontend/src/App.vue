@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Background/>
-
     <Login id="login"/>
     <Conference id="conference"/>
   </div>
@@ -23,9 +22,14 @@ export default {
     Conference,
     Login
   },
+  data (){
+    return {
+      component: "Login"
+    }
+  },
   mounted() {
     axios.get('http://192.168.178.39:9000').then(response => blockVisibilityController(response.data));
-  }
+  },
 }
 </script>
 
@@ -39,5 +43,21 @@ body{
 #app {
   display: flex;
   height: 100vh;
+}
+
+.fadeIn {
+    -webkit-transition: opacity 4s ease-in-out;
+    -moz-transition: opacity 4s ease-in-out;
+    -ms-transition: opacity 4s ease-in-out;
+    -o-transition: opacity 4s ease-in-out;
+    opacity: 1!important;
+}
+
+.fadeOut {
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    opacity: 0;
 }
 </style>
