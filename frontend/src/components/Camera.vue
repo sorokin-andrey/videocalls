@@ -1,15 +1,8 @@
 <template>
-    <div class="hello">
+    <div id="container">
+        <video autoplay id="videoElement">
 
-        <div id="login" style="display: none">
-
-        </div>
-
-        <div id="container" style="display: none">
-            <video autoplay id="videoElement">
-
-            </video>
-        </div>
+        </video>
     </div>
 </template>
 
@@ -22,6 +15,7 @@
 
     window.onload = function() {
 
+        startVideo();
 
 
         // let peerAndrey = new Peer('Andrey');
@@ -42,42 +36,22 @@
         //         console.log(data);
         //     });
         // });
-
-
-
-
-        // let video = document.getElementById("videoElement");
-        //
-        // if (navigator.mediaDevices.getUserMedia) {
-        //     navigator.mediaDevices.getUserMedia({ video: true })
-        //         .then(function (stream) {
-        //             video.srcObject = stream;
-        //         })
-        //         .catch(function (e) {
-        //             console.log("Something went wrong!" + e);
-        //         });
-        // }
     }
 
-    // export default {
-    //     data () {
-    //         return {
-    //             peerId: null,
-    //             peers: null
-    //         }
-    //     },mounted() {
-    //         axios.get('http://localhost:8080').then(response => {
-    //             this.peers = response.data;
-    //             if (this.peers.length > 0) {
-    //                 console.log(this.peers);
-    //             } else {
-    //                 console.log('else ' + this.peers);
-    //                 axios.post('http://localhost:8080', 'Andrey');
-    //             }
-    //         });
-    //     }
-    // }
 
+    function startVideo() {
+        let video = document.getElementById("videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (e) {
+                    console.log("Something went wrong!" + e);
+                });
+        }
+    }
 </script>
 
 <style scoped lang="less">
