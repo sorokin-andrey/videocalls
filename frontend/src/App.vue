@@ -24,7 +24,7 @@ export default {
     Login
   },
   mounted() {
-    axios.get('http://localhost:8080').then(response => blockVisibilityController(response.data));
+    axios.get('http://192.168.178.39:9000').then(response => blockVisibilityController(response.data));
   }
 }
 </script>
