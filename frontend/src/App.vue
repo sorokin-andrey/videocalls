@@ -1,48 +1,39 @@
 <template>
   <div id="app">
     <Background/>
-    <HelloWorld id="hello"/>
-    <Intro id="intro"/>
+
+    <Login id="login"/>
+    <Conference id="conference"/>
   </div>
 </template>
 
 <script>
 
-import HelloWorld from './components/HelloWorld.vue'
-import Intro from './components/Intro.vue'
 import Background from './components/Background.vue'
+import Conference from './components/Conference.vue'
+import Login from './components/Login.vue'
+
 import axios from "axios"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    Intro,
-    Background
-  },
-  data () {
-      return {
-          peerId: null,
-          peers: null
-      }
+    Background,
+    Conference,
+    Login
   },
   mounted() {
-      axios.get('http://localhost:8080').then(response => {
-          this.peers = response.data;
-          if (response.data.length > 0) {
-              console.log(this.peers);
-          }
-      });
+    axios.get('http://localhost:8080').then(response => show(response.data));
   }
 }
 
-window.onload = function() {
-  if (this.peers != null && this.peers.length > 0) {
-      document.getElementById("intro").style.visibility = 'hidden';
-      document.getElementById("hello").style.visibility = 'visible';
+function show(data) {
+  if (data != null && data.length > 0) {
+      document.getElementById("login").style.display = 'none';
+      document.getElementById("conference").style.display = 'block';
   } else {
-      document.getElementById("intro").style.visibility = 'visible';
-      document.getElementById("hello").style.visibility = 'hidden';
+      document.getElementById("login").style.visibility = 'block';
+      document.getElementById("conference").style.visibility = 'none';
   }
 }
 </script>

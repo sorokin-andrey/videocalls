@@ -3,10 +3,10 @@
     <div class="container intro">
       <h1 class="wrapper__title intro__title">Welcome</h1>
       <form
-              action="http://localhost:8080"
-              method="POST"
-              class="form intro__form"
-              v-on:submit.prevent="sub"
+        action="http://localhost:8080"
+        method="POST"
+        class="form intro__form"
+        v-on:submit.prevent="sub"
       >
         <input
           type="text"
@@ -194,7 +194,7 @@
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   -webkit-text-fill-color: @prim;
   -webkit-box-shadow: 0 0 0px 1000px #ffffff20 inset;
