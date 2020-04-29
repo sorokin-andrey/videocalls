@@ -9,16 +9,18 @@
               v-on:submit.prevent="sub"
       >
         <input
-                type="text"
-                placeholder="First name"
-                id="firstName"
-                v-model="firstName"
+          type="text"
+          placeholder="First name"
+          id="firstName"
+          v-model="firstName"
+          class="wrapper__input"
         />
         <input
-                type="text"
-                placeholder="Last name"
-                id="lastName"
-                v-model="lastName"
+          type="text"
+          placeholder="Last name"
+          id="lastName"
+          v-model="lastName"
+          class="wrapper__input"
         />
         <button type="submit" id="login-button">Enter to conference</button>
       </form>
@@ -74,7 +76,6 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200, 300);
 
 @prim: #53e3a6;
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -82,12 +83,6 @@
 
   font-weight: 300;
 }
-
-body {
-  font-family: "Source Sans Pro", sans-serif;
-  color: white;
-  font-weight: 300;
-
   ::-webkit-input-placeholder {
     /* WebKit browsers */
     font-family: "Source Sans Pro", sans-serif;
@@ -114,7 +109,7 @@ body {
     color: white;
     font-weight: 300;
   }
-}
+
 
 .wrapper {
   background: #50a3a2;
@@ -122,15 +117,14 @@ body {
   background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
-
-  position: absolute;
-  top: 50%;
-  left: 0;
   width: 100%;
-  height: 400px;
-  margin-top: -200px;
+  height: 100vh;
   overflow: hidden;
-
+  position: absolute;
+  display: flex;
+  &__title {
+    color:#fff;
+  }
   &.form-success {
     .container {
       h1 {
@@ -142,10 +136,8 @@ body {
 
 .container {
   max-width: 600px;
-  margin: 0 auto;
-  padding: 80px 0;
-  height: 400px;
   text-align: center;
+  margin: auto;
 
   h1 {
     font-size: 40px;
@@ -187,7 +179,6 @@ form {
     &:focus {
       background-color: white;
       width: 300px;
-
       color: @prim;
     }
   }
@@ -330,4 +321,18 @@ form {
     transform: translateY(-700px) rotate(600deg);
   }
 }
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: @prim;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff20 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+// input:-webkit-autofill, 
+// input:-webkit-autofill:focus {
+//   background-color: white;
+// }
 </style>

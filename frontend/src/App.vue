@@ -45,12 +45,17 @@ window.onload = function() {
 </script>
 
 <style>
+body{
+  font-weight: 300;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  /* color: white; */
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
