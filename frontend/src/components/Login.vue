@@ -31,7 +31,7 @@
   import axios from "axios";
   import {blockVisibilityController} from "../functions/blockVisibilityController"
 
-  const SERVER_URL = 'http://localhost:8080';
+  const SERVER_URL = 'http://192.168.178.39:9000/';
 
   export default {
     data() {
