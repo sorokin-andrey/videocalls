@@ -26,11 +26,8 @@ export default {
   mounted() {
       axios.get('http://localhost:8080').then(response => {
           this.peers = response.data;
-          if (this.peers.length > 0) {
-              // console.log(this.peers);
-          } else {
-              // console.log('else ' + this.peers);
-              axios.post('http://localhost:8080', 'Andrey');
+          if (response.data.length > 0) {
+              console.log(this.peers);
           }
       });
   }
