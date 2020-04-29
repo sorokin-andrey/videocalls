@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Background/>
-    <HelloWorld id="hello"/>
     <Intro id="intro"/>
+    <HelloWorld id="hello"/>
   </div>
 </template>
 
@@ -48,17 +48,14 @@ window.onload = function() {
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 body{
   font-weight: 300;
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
-  /* color: white; */
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  display: flex;
+  height: 100vh;
 }
 </style>
