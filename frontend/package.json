@@ -17,6 +17,7 @@
     "peerjs": "^1.2.0",
     "vue": "^2.6.11",
     "vue-peerjs": "^0.3.0",
+    "vue-router": "^3.1.6",
     "webpack": "^4.43.0"
   },
   "devDependencies": {

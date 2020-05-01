@@ -1,5 +1,5 @@
 <template>
-    <div class="conference">
+    <div id="conference" class="conference">
         <Camera />
         <Friends />
     </div>
@@ -15,6 +15,14 @@ export default {
     components: {
         Camera,
         Friends
+    },
+    methods: {
+        fadeIn() {
+            document.getElementById("conference").classList.add('fadeIn');
+        }
+    },
+    mounted(){
+        this.fadeIn()
     }
 }
 
@@ -24,7 +32,6 @@ export default {
 <style scoped lang="less">
     .conference {
         opacity: 0;
-        // display: none;
         position: absolute;
         z-index: 1;
         width: 100%;

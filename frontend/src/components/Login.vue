@@ -1,5 +1,5 @@
 <template>
-    <div class="intro">
+    <div id="login" class="intro">
       <h1 class="intro__title">Welcome</h1>
       <form
         action="http://localhost:8080"
@@ -44,28 +44,27 @@
     },
     methods: {
       sub: function () {
-        if (this.firstName == "" || this.lastName == "") {
-          this.log = "Enter your name.";
-        } else {
-          axios.post(SERVER_URL, {
-            "firstName": this.firstName,
-            "lastName": this.lastName
-          }).then(
-            ddd()
-          );
+        if (this.firstName !== "" && this.lastName !== "") {
+          axios
+            .post(SERVER_URL, {
+              "firstName": this.firstName,
+              "lastName": this.lastName
+            })
+            .finally(() => {
+              this.fadeOut();
+              this.goToConf();
+            });
         }
-
-
       },
-    },
+      fadeOut() {
+        document.getElementById("introForm").classList.add('fadeOut');
+        document.getElementById("login").classList.add('form-success');
+      },
+      goToConf() {
+        setTimeout(() => this.$router.push({ name: 'conference'}), 1000);
+      }
+    }
   };
-
-  function ddd() {
-    document.getElementById("introForm").classList.add('fadeOut');
-    document.getElementById("login").classList.add('form-success');
-    // blockVisibilityController(response.data);
-    document.getElementById("conference").classList.add('fadeIn');
-  }
 </script>
 
 <style scoped lang="less">

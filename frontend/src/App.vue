@@ -1,35 +1,19 @@
 <template>
   <div id="app">
     <Background/>
-    <Login id="login"/>
-    <Conference id="conference"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
 import Background from './components/Background.vue'
-import Conference from './components/Conference.vue'
-import Login from './components/Login.vue'
-
-import axios from "axios"
-import {blockVisibilityController} from "./functions/blockVisibilityController"
 
 export default {
   name: 'App',
   components: {
-    Background,
-    Conference,
-    Login
-  },
-  data (){
-    return {
-      component: "Login"
-    }
-  },
-  mounted() {
-    axios.get('http://192.168.178.39:9000').then(response => blockVisibilityController(response.data));
-  },
+    Background
+  }
 }
 </script>
 

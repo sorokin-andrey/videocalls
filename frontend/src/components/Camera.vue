@@ -1,9 +1,5 @@
 <template>
-    <div id="videoContainer">
-        <video autoplay id="videoElement">
-
-        </video>
-    </div>
+    <div id="videoContainer"></div>
 </template>
 
 <script>
@@ -13,9 +9,8 @@
     // import Peer from 'peerjs';
     // import axios from "axios";
 
-    window.onload = function() {
 
-        startVideo();
+
 
 
         // let peerAndrey = new Peer('Andrey');
@@ -36,20 +31,32 @@
         //         console.log(data);
         //     });
         // });
-    }
+    // }
 
 
-    function startVideo() {
-        let video = document.getElementById("videoElement");
+    export default {
+        methods: {
+            startVideo() {
+                let videoContainer = document.getElementById("videoContainer");
+                let video = document.createElement("video");
+                videoContainer.appendChild(video);
+                video.classList.add('videoElement');
+                video.style.width="100%";
+                video.setAttribute("autoplay", "true");
 
-        if (navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(function (stream) {
-                    video.srcObject = stream;
-                })
-                .catch(function (e) {
-                    console.log("Something went wrong!" + e);
-                });
+                if (navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function (stream) {
+                            video.srcObject = stream;
+                        })
+                        .catch(function (e) {
+                            console.log("Something went wrong!" + e);
+                        });
+                }
+            }
+        },
+        mounted(){
+            this.startVideo();
         }
     }
 </script>
@@ -80,7 +87,7 @@
         border: 10px #333 solid;
         
     }
-    #videoElement {
+    .videoElement {
         width: 500px;
         height: 375px;
         background-color: #666;
