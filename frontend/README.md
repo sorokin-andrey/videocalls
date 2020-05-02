@@ -22,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Don't forget to set
+```
+chrome://flags/#allow-insecure-localhost
+``` 

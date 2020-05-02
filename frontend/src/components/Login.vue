@@ -2,7 +2,7 @@
     <div id="login" class="intro">
       <h1 class="intro__title">Welcome</h1>
       <form
-        action="http://localhost:8080"
+        action="https://localhost:9000"
         method="POST"
         id="introForm"
         class="form intro__form"
@@ -30,10 +30,8 @@
 <script>
 
   import axios from "axios";
-// import func from '../../../../vue-temp/vue-editor-bridge';
-  // import {blockVisibilityController} from "../functions/blockVisibilityController"
 
-  const SERVER_URL = 'http://192.168.178.39:9000/';
+  const SERVER_URL = 'https://192.168.178.39:9000/';
 
   export default {
     data() {
@@ -50,6 +48,7 @@
               "firstName": this.firstName,
               "lastName": this.lastName
             })
+            .catch(err => console.log('error', err))
             .finally(() => {
               this.fadeOut();
               this.goToConf();

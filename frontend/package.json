@@ -13,12 +13,9 @@
     "jquery": "^3.5.0",
     "less": "^3.11.1",
     "less-loader": "^6.0.0",
-    "peer": "^0.5.2",
-    "peerjs": "^1.2.0",
+    "simple-peer": "^9.7.0",
     "vue": "^2.6.11",
-    "vue-peerjs": "^0.3.0",
-    "vue-router": "^3.1.6",
-    "webpack": "^4.43.0"
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",

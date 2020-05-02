@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import de.homework.backend.models.Peer;
 
-@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8081"}, maxAge = 3600)
+@CrossOrigin(origins = {"https://localhost:9000", "https://localhost:9001", "https://192.168.178.39:9000", "https://192.168.178.39:9001"}, maxAge = 3600)
 @RestController
 public class MainController {
 
